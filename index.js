@@ -3,14 +3,12 @@ const matchList = document.getElementById ('list');
 
 const searchTown = searchText => {
     var zipCode = searchText
-        // if zipCode.length between(x, 3, 5) {
-
-        // }
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://app.zipcodebase.com/api/v1/search?apikey=' + '0236f9d0-f277-11eb-82a2-85426b662485' + '&country=US&codes=' + zipCode, 'true')
     xhr.send();
     xhr.onload = function()
     {
+        matchList.innerHTML =  "";
         var data = JSON.parse(xhr.responseText)
         var results = document.createElement("h3")
         var url = zipCode
@@ -19,8 +17,7 @@ const searchTown = searchText => {
         var location  = result[Object.keys(result)[0]]
         results.innerHTML = 'Location Name: ' + location[0].city
         matchList.appendChild(results)
-        console.log(data)
-
+        
         var province = document.createElement("h3")
         province.innerHTML = 'County: ' + location[0].province
         matchList.appendChild(province)

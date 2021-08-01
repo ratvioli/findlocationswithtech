@@ -1,20 +1,22 @@
-const apiKey = "";
+const search = document.getElementById('search');
+const matchList = document.getElementById ('list');
 
-function apiGet(method, query) {
-  return new Promise(function(resolve, reject) {
-    var otmAPI =
-      "https://api.opentripmap.com/0.1/en/places/" +
-      method +
-      "?apikey=" +
-      apiKey;
-    if (query !== undefined) {
-      otmAPI += "&" + query;
-    }
-    fetch(otmAPI)
-      .then(response => response.json())
-      .then(data => resolve(data))
-      .catch(function(err) {
-        console.log("Fetch Error :-S", err);
-      });
-  });
-}
+const searchTown = searchText => {
+    var zipCode = searchText
+        if(zipCode.length < 3)
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://app.zipcodebase.com/api/v1/search?apikey=' + 'api' + 'country=US&codes=' + zipCode, 'true')
+    xhr.send();
+    xhr.onload = function()
+    {
+        var data = JSON.parse(xhr.responseText)
+        var results = document.createElement("p")
+        results.innerHTML = data.results.[zipCode][0].city
+        matchList.appendChild(results)
+        console.log(data)
+    } 
+
+ };
+
+
+search.addEventListener('input', () => searchTown(search.value));

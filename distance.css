@@ -85,3 +85,22 @@ h2
   .dropdown-content a:hover {background-color: rgba(75, 75, 75, 0.5)}
   
   .show {display:block;}    
+
+  .form-control
+{
+    text-align: center;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    display: flex;
+    width: 75%;
+    height: auto;    
+    border: none;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.5);  
+    font-family: "Patrick Hand SC", sans-serif;
+    font-size: 25px;
+    color: white;
+}
